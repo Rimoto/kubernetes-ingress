@@ -24,7 +24,7 @@ import (
 
 	"github.com/golang/glog"
 
-	"github.com/nginxinc/kubernetes-ingress/nginx-controller/nginx"
+	"github.com/rimoto/kubernetes-ingress/nginx-controller/nginx"
 	"k8s.io/kubernetes/pkg/api"
 	"k8s.io/kubernetes/pkg/apis/extensions"
 	"k8s.io/kubernetes/pkg/client/cache"
@@ -337,6 +337,9 @@ func pathOrDefault(path string) string {
 	if path == "" {
 		return "/"
 	} else {
+		if string(path[len(path)-1]) != "/" {
+			path = path + "/"
+		}
 		return path
 	}
 }

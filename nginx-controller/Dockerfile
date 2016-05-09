@@ -1,4 +1,8 @@
-FROM nginx:1.9.15
+FROM nginx:alpine
+
+# metadata
+LABEL version="0.2"
+LABEL description="Docker container for Nginx controller for Ingress"
 
 # forward nginx access and error logs to stdout and stderr of the ingress
 # controller process

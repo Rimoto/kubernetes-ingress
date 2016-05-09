@@ -18,3 +18,11 @@ func TestPathOrDefaultReturnActual(t *testing.T) {
 		t.Errorf("pathOrDefault(%q) should return %q", path, path)
 	}
 }
+
+func TestPathOrDefaultReturnTailingSlash(t *testing.T) {
+	path := "/path/to/resource"
+	expected := "/path/to/resource/"
+	if pathOrDefault(path) != expected {
+		t.Errorf("pathOrDefault(%q) should return %q", path, expected)
+	}
+}
